@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width"/>
-  <style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width"/>
+	<style>
 /**********************************************
 * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
 **********************************************/
@@ -838,9 +838,9 @@ body.outlook p {
 </style>
 </head>
 <body>
-  <table class="body">
-    <tr>
-      <td class="center" align="center" valign="top">
+	<table class="body">
+		<tr>
+			<td class="center" align="center" valign="top">
         <center>
 
           <table class="outer"><tr><td>
@@ -861,18 +861,123 @@ body.outlook p {
                             <td  style="text-align: center; padding-bottom: 20px;">
 
                             </style>
-                            <h1>Din ordre er sendt</h1>
-                            <p>Vi har nu sendt din ordre, der har nr. <{$order->getWebshopOrderId()}></p>
+                            <h4>Kære, <{$order->getOrderName()|escape}</h4>
+                            <h1>Mange tak for din ordre!<h1>
+                            </td>
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+                  <table class="row">
+                    <tr>
+                      <td>
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="" style=" padding: 20px 0 0;">
+                              <h3>Ordreoplysninger</h3>                          
+                            </td>
+                          </tr>
+                        </table>
+                        <table class="twelve columns" style="border-bottom: 1px solid #ddd;">
+                          <tr>
+                            <td class="two" >
+                              <p>Produkt</p>
+                            </td>
+                            <td class="eight right" style="text-align: right;">
+                              <p>Pris</p>
+                            </td>
+                          </tr>
+                        </table>
+                        <{assign var="products" value=$order->getProducts()}>
+                        <{section name="i" loop=$products}>
+                        <table class="twelve columns" style="border-bottom: 1px solid #ddd;">
+                          <tr>
+                            <td class="two" style="">
+                              <p>{$products[i]->getAmount()}> stk.</p>
+                            </td>
+                            <td class="six" style="">
+                             <strong><{$products[i]->getName()|escape}></strong>
+                           </td>
+                           <td class="four right" style="text-align: right;">
+                            <{assign var="attributes" value=$products[i]->getAttributes()}>
+                            <{if $attributes}>
+                            <{section name="j" loop=$attributes}>
+                            <p>DKK <{$attributes[j].name}>: <{$attributes[j].val}></p> 
+                            <{/section}>     
+                            <{/if}>                 
+                          </td>
+                        </tr>
+                      </table>   
+                      <{/section}>
+                    </td>
+                  </tr>
+                </table>
+                <table class="row">
+                  <tr>
+                    <td>
+                      <table class="twelve columns">
+                        <tr>                          
+                          <td class="right" style="padding:0;">
+                            <p>Moms udgør: <{$order->getVat()|number_format:2:",":"."}> <{$webshop->getCurrency()}></p>
+                          </td>
+                        </tr>
+                      </table>
+                      <table class="twelve columns">
+                        <tr>                          
+                          <td class="right" style="padding:0;">
+                            <p>Fragt: <{$order->getShippingPrice()|number_format:2:",":"."}> <{$webshop->getCurrency()}></p>
                           </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
-                </table>            
+                </table>
+                <table class="row">
+                  <tr>
+                    <td>
+                      <table class="twelve columns" style="border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;">
+                        <tr>
+                          <td class="six" style="padding: 10px 0;">
+                            <h3>Total:</h3>
+                          </td>
+                          <td class="six right" style="padding: 10px 0;">
+                            <h3><{$order->getPrice()|number_format:2:",":"."}> <{$webshop->getCurrency()}></h3>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="row">
+                  <tr>
+                    <td>
+                      <table class="twelve columns" style="margin-top: 20px;">
+                        <tr>
+                          <td class="six" style="">
+                            <h3>Faktureringsadresse</h3>
+                            <p><{$order->getOrderName()|escape}></p>
+                            <p><{$order->getOrderAddress()|escape}></p>
+                            <p><{$order->getOrderZipcode()|escape}> <{$order->getOrderCity()|escape}></p>
+                            <p><{$order->getOrderCountry()|escape}></p>
+                            <br/>
+                          </td>
+                          <td class="six" style="">
+                            <h3>Leveringsadresse</h3>
+                            <p><{$order->getDelName()|escape}></p>
+                            <p><{$order->getDelAddress()|escape}></p>
+                            <p><{$order->getDelZipcode()|escape}> <{$order->getDelCity()|escape}></p>
+                            <p><{$order->getDelCountry()|escape}></p>
 
 
-                <{if $order->getTrackingNumber()}>
-                <{assign var="shipping" value=$order->getShipping()}>
+                          </td>
+                        </tr>
+                      </table>                        
+                    </td>
+                  </tr>
+                </table>
+
                 <table class="row callout">
                   <tr>
                     <td class="wrapper last">
@@ -880,7 +985,7 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td class="" style="text-align:center;">
-                            <a class="button-custom"> href="<{$order->getTrackingUrl()|escape}>" target="_blank">Følg din ordre hos <{$shipping->getName()|escape}></a>
+                            <a class="button-custom" href="<{$order->getPublicUrl()|escape}>">Du kan følge din ordre på dette link</a>
                           </td>
                         </tr>
                       </table>
@@ -888,7 +993,6 @@ body.outlook p {
                     </td>
                   </tr>
                 </table>
-                <{/if}>
 
                 <!-- container end below -->
               </td>

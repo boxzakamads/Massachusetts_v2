@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width"/>
-	<style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width"/>
+  <style>
 /**********************************************
 * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
 **********************************************/
@@ -61,7 +61,7 @@ a img {
 }
 
 p {
-  margin: 0 0 0 10px;
+  margin: 0;
 }
 
 table {
@@ -91,6 +91,9 @@ hr {
 }
 
 /* Responsive Grid */
+body{
+  background-color: #eee;
+}
 
 table.body {
   height: 100%;
@@ -98,7 +101,7 @@ table.body {
 }
 table.outer td{
   width: 580px;
-  padding:10px;
+  padding:15px;
   background: #fff;
 }
 table.container {
@@ -130,7 +133,8 @@ table.column {
 
 table.columns td,
 table.column td {
-  padding: 0px 0px 10px; 
+  padding: 10px 0px 10px; 
+  line-height: 26px;
 }
 
 table.columns td.sub-columns,
@@ -330,7 +334,7 @@ body, table.body, h1, h2, h3, h4, h5, h6, p, td {
   font-weight: normal; 
   padding:0; 
   margin: 0;
-  text-align: left; 
+  /*text-align: left; */
   line-height: 1.3;
 }
 
@@ -338,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
   word-break: normal;
 }
 
-h1 {font-size: 35px;}
+h1 {font-size: 35px; font-weight: 700;}
 h2 {font-size: 28px;}
 h3 {font-size: 24px;}
 h4 {font-size: 22px;}
@@ -352,7 +356,8 @@ p.lead, p.lede, p.leed {
 }
 
 p { 
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
+  line-height: 26px;
 }
 
 small {
@@ -365,15 +370,15 @@ a {
 }
 
 a:hover { 
-  color: #2795b6 !important;
+  /*color: #2795b6 !important;*/
 }
 
 a:active { 
-  color: #2795b6 !important;
+  /*color: #2795b6 !important;*/
 }
 
 a:visited { 
-  color: #2ba6cb !important;
+  /*color: #2ba6cb !important;*/
 }
 
 h1 a, 
@@ -578,8 +583,25 @@ table.round td {
   border-radius: 500px;
 }
 
-/* Outlook First */
+.button-custom{
+  color: #fff;
+  display: block;
+  margin: auto;
+  width: auto;
+  max-width: 360px;
+  text-align: center;
+  border: 1px solid #507502;
+  border-bottom: 5px solid #3f5c02;
+  color: #ffffff;
+  padding: 8px 0;
+  background-color: #507502;
+  border-radius: 3px;
+}
+.button-custom:hover{
+  opacity: 0.9;
+}
 
+/* Outlook First */
 body.outlook p {
   display: inline !important;
 }
@@ -695,208 +717,261 @@ body.outlook p {
   }
 }
 
-  </style>
-  <style>
+</style>
+<style>
 
-    table.facebook td {
-      background: #3b5998;
-      border-color: #2d4473;
+  table.facebook td {
+    background: #3b5998;
+    border-color: #2d4473;
+  }
+
+  table.facebook:hover td {
+    background: #2d4473 !important;
+  }
+
+  table.twitter td {
+    background: #00acee;
+    border-color: #0087bb;
+  }
+
+  table.twitter:hover td {
+    background: #0087bb !important;
+  }
+
+  table.google-plus td {
+    background-color: #DB4A39;
+    border-color: #CC0000;
+  }
+
+  table.google-plus:hover td {
+    background: #CC0000 !important;
+  }
+
+  .template-label {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 11px;
+  }
+
+  .callout .wrapper {
+    padding-bottom: 20px;
+  }
+
+  .callout .panel {
+    background: #ECF8FF;
+    border-color: #b9e5ff;
+  }
+
+  .header {
+    background: #999999;
+  }
+
+  .footer .wrapper {
+    background: #ebebeb;
+  }
+
+  .footer h5 {
+    padding-bottom: 10px;
+  }
+
+  table.columns .text-pad {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  table.columns .left-text-pad {
+    padding-left: 10px;
+  }
+
+  table.columns .right-text-pad {
+    padding-right: 10px;
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    table[class="body"] .right-text-pad {
+      padding-left: 10px !important;
     }
 
-    table.facebook:hover td {
-      background: #2d4473 !important;
+    table[class="body"] .left-text-pad {
+      padding-right: 10px !important;
     }
-
-    table.twitter td {
-      background: #00acee;
-      border-color: #0087bb;
-    }
-
-    table.twitter:hover td {
-      background: #0087bb !important;
-    }
-
-    table.google-plus td {
-      background-color: #DB4A39;
-      border-color: #CC0000;
-    }
-
-    table.google-plus:hover td {
-      background: #CC0000 !important;
-    }
-
-    .template-label {
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 11px;
-    }
-
-    .callout .wrapper {
-      padding-bottom: 20px;
-    }
-
-    .callout .panel {
-      background: #ECF8FF;
-      border-color: #b9e5ff;
-    }
-
-    .header {
-      background: #999999;
-    }
-
-    .footer .wrapper {
-      background: #ebebeb;
-    }
-
-    .footer h5 {
-      padding-bottom: 10px;
-    }
-
-    table.columns .text-pad {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    table.columns .left-text-pad {
-      padding-left: 10px;
-    }
-
-    table.columns .right-text-pad {
-      padding-right: 10px;
-    }
-
-    @media only screen and (max-width: 600px) {
-
-      table[class="body"] .right-text-pad {
-        padding-left: 10px !important;
-      }
-
-      table[class="body"] .left-text-pad {
-        padding-right: 10px !important;
-      }
-    }
+  }
 
 
 
 
-    .producttable-head td{
-      border-top:1px solid #ccc;
-      padding-top:20px;
-      padding-bottom: 20px;
-      text-transform: uppercase;
-      color: #ccc;
-    }
-    .producttable-productline td{
-      padding-top:20px;
-      padding-bottom: 20px;
-      border-top:1px solid #efefef;
-    }
-    .producttable-shipping td{
-      padding-top:20px;
-      padding-bottom: 20px;
-      border-top:1px solid #efefef;
-    }
-    .producttable-voucher td{
-      padding-top:20px;
-      padding-bottom: 20px;
-      border-top:1px solid #efefef;
-    }
-    .producttable-total td{
-      padding-top:20px;
-      padding-bottom: 20px;
-      border-top:1px solid #efefef;
-      border-bottom: 1px solid #cccccc;
-      font-weight: bold;
-    }
-    .right{
-      text-align: right;
-    }
+  .producttable-head td{
+    border-top:1px solid #ccc;
+    padding-top:20px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    color: #ccc;
+  }
+  .producttable-productline td{
+    padding-top:20px;
+    padding-bottom: 20px;
+    border-top:1px solid #efefef;
+  }
+  .producttable-shipping td{
+    padding-top:20px;
+    padding-bottom: 20px;
+    border-top:1px solid #efefef;
+  }
+  .producttable-voucher td{
+    padding-top:20px;
+    padding-bottom: 20px;
+    border-top:1px solid #efefef;
+  }
+  .producttable-total td{
+    padding-top:20px;
+    padding-bottom: 20px;
+    border-top:1px solid #efefef;
+    border-bottom: 1px solid #cccccc;
+    font-weight: bold;
+  }
+  .right{
+    text-align: right;
+  }
 
 
-	</style>
+</style>
 </head>
 <body>
-	<table class="body">
-		<tr>
-			<td class="center" align="center" valign="top">
+  <table class="body">
+    <tr>
+      <td class="center" align="center" valign="top">
         <center>
 
           <table class="outer"><tr><td>
 
-          <table class="container">
-            <tr>
-              <td>
+            <table class="container">
+              <tr>
+                <td>
 
-                <table class="row">
-                  <tr>
-                    <td class="wrapper last">
+                  <table class="row">
+                    <tr>
+                      <td class="wrapper last">
 
-                      <table class="twelve columns">
-                        <tr>
-                          <td align="center" style="text-align:center"><img src="logo.png" style="width:180px;" /></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h1>Kære, <{$order->getOrderName()|escape}></h1>
-                			<p class="lead">Mange tak for din ordre!</p>
+                        <table class="twelve columns" style=" border-bottom: 1px solid #ddd;">
+                          <tr>
+                            <td align="center" style="text-align:center"><img src="http://beneath.shoporama.dk/cache/278068/fit-350x100x50.jpg" style="width:280px; margin-bottom: 20px;" /></td>
+                          </tr>
+                          <tr>
+                            <td  style="text-align: center; padding-bottom: 20px;">
+
+                            </style>
+                            <h4>Kære, <{$order->getOrderName()|escape}</h4>
+                            <h1>Mange tak for din ordre!<h1>
+                            </td>
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+                  <table class="row">
+                    <tr>
+                      <td>
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="" style=" padding: 20px 0 0;">
+                              <h3>Ordreoplysninger</h3>                          
+                            </td>
+                          </tr>
+                        </table>
+                        <table class="twelve columns" style="border-bottom: 1px solid #ddd;">
+                          <tr>
+                            <td class="two" >
+                              <p>Produkt</p>
+                            </td>
+                            <td class="eight right" style="text-align: right;">
+                              <p>Pris</p>
+                            </td>
+                          </tr>
+                        </table>
+                        <{assign var="products" value=$order->getProducts()}>
+                        <{section name="i" loop=$products}>
+                        <table class="twelve columns" style="border-bottom: 1px solid #ddd;">
+                          <tr>
+                            <td class="two" style="">
+                              <p>{$products[i]->getAmount()}> stk.</p>
+                            </td>
+                            <td class="six" style="">
+                             <strong><{$products[i]->getName()|escape}></strong>
+                           </td>
+                           <td class="four right" style="text-align: right;">
+                            <{assign var="attributes" value=$products[i]->getAttributes()}>
+                            <{if $attributes}>
+                            <{section name="j" loop=$attributes}>
+                            <p>DKK <{$attributes[j].name}>: <{$attributes[j].val}></p> 
+                            <{/section}>     
+                            <{/if}>                 
                           </td>
                         </tr>
-                      </table>
-
+                      </table>   
+                      <{/section}>
                     </td>
                   </tr>
                 </table>
-
-
                 <table class="row">
                   <tr>
                     <td>
                       <table class="twelve columns">
-                        <tr>
-                          <td class="" style="">
-                            <h2>Ordreoplysninger</h2>
-
-                            <h3>Varer</h3>
-							<{assign var="products" value=$order->getProducts()}>
-
-							<ul>
-								<{section name="i" loop=$products}>
-									<li>
-										<strong><{$products[i]->getAmount()}> stk. <{$products[i]->getName()|escape}></strong>
-										<{assign var="attributes" value=$products[i]->getAttributes()}>
-										<{if $attributes}>
-											<ul>
-												<{section name="j" loop=$attributes}>
-													<li><{$attributes[j].name}>: <{$attributes[j].val}></li>
-												<{/section}>
-											</ul>
-										<{/if}>
-									</li>
-								<{/section}>
-							</ul>
-							<br/>
-
-							<h3>Pris</h3>
-							<p><{$order->getPrice()|number_format:2:",":"."}> <{$webshop->getCurrency()}></p>
-							<br/>
-
-							<h3>Bestillingsadresse</h3>
-							<p><{$order->getOrderName()|escape}></p>
-							<p><{$order->getOrderAddress()|escape}></p>
-							<p><{$order->getOrderZipcode()|escape}> <{$order->getOrderCity()|escape}></p>
-							<p><{$order->getOrderCountry()|escape}></p>
-							<br/>
-
-							<h3>Leveringsadresse</h3>
-							<p><{$order->getDelName()|escape}></p>
-							<p><{$order->getDelAddress()|escape}></p>
-							<p><{$order->getDelZipcode()|escape}> <{$order->getDelCity()|escape}></p>
-							<p><{$order->getDelCountry()|escape}></p>
-
-                            
+                        <tr>                          
+                          <td class="right" style="padding:0;">
+                            <p>Moms udgør: <{$order->getVat()|number_format:2:",":"."}> <{$webshop->getCurrency()}></p>
                           </td>
                         </tr>
                       </table>
+                      <table class="twelve columns">
+                        <tr>                          
+                          <td class="right" style="padding:0;">
+                            <p>Fragt: <{$order->getShippingPrice()|number_format:2:",":"."}> <{$webshop->getCurrency()}></p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="row">
+                  <tr>
+                    <td>
+                      <table class="twelve columns" style="border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;">
+                        <tr>
+                          <td class="six" style="padding: 10px 0;">
+                            <h3>Total:</h3>
+                          </td>
+                          <td class="six right" style="padding: 10px 0;">
+                            <h3><{$order->getPrice()|number_format:2:",":"."}> <{$webshop->getCurrency()}></h3>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table class="row">
+                  <tr>
+                    <td>
+                      <table class="twelve columns" style="margin-top: 20px;">
+                        <tr>
+                          <td class="six" style="">
+                            <h3>Faktureringsadresse</h3>
+                            <p><{$order->getOrderName()|escape}></p>
+                            <p><{$order->getOrderAddress()|escape}></p>
+                            <p><{$order->getOrderZipcode()|escape}> <{$order->getOrderCity()|escape}></p>
+                            <p><{$order->getOrderCountry()|escape}></p>
+                            <br/>
+                          </td>
+                          <td class="six" style="">
+                            <h3>Leveringsadresse</h3>
+                            <p><{$order->getDelName()|escape}></p>
+                            <p><{$order->getDelAddress()|escape}></p>
+                            <p><{$order->getDelZipcode()|escape}> <{$order->getDelCity()|escape}></p>
+                            <p><{$order->getDelCountry()|escape}></p>
+                          </td>
+                        </tr>
+                      </table>                        
                     </td>
                   </tr>
                 </table>
@@ -907,8 +982,8 @@ body.outlook p {
 
                       <table class="twelve columns">
                         <tr>
-                          <td class="panel" style="text-align:center;">
-                            <p><a href="<{$order->getPublicUrl()|escape}>">Du kan følge din ordre på dette link</a></p>
+                          <td class="" style="text-align:center;">
+                            <a class="button-custom" href="<{$order->getPublicUrl()|escape}>">Du kan følge din ordre på dette link</a>
                           </td>
                         </tr>
                       </table>
@@ -917,15 +992,15 @@ body.outlook p {
                   </tr>
                 </table>
 
-              <!-- container end below -->
+                <!-- container end below -->
               </td>
             </tr>
           </table>
 
-          </td></tr></table>
-        </center>
-			</td>
-		</tr>
-	</table>
+        </td></tr></table>
+      </center>
+    </td>
+  </tr>
+</table>
 </body>
 </html>
