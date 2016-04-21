@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width"/>
-  <style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width"/>
+	<style>
 /**********************************************
 * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
 **********************************************/
@@ -21,7 +21,6 @@ body{
   -ms-text-size-adjust:100%; 
   margin:0; 
   padding:0;
-  background:url('http://kidsdelux.dk/private_templates/1224/kidsdelux/img/kd-pattern.gif');
 }
 
 .ExternalClass { 
@@ -817,9 +816,9 @@ body.outlook p {
 </style>
 </head>
 <body>
-  <table class="body">
-    <tr>
-      <td class="center" align="center" valign="top">
+	<table class="body">
+		<tr>
+			<td class="center" align="center" valign="top">
         <center>
 
           <table class="outer"><tr><td>
@@ -834,7 +833,7 @@ body.outlook p {
 
                         <table class="twelve columns">
                           <tr>
-                            <td align="center" style="text-align:center"><img src="http://kidsdelux.dk/private_templates/1224/kidsdelux/img/logo.png" style="width:180px;" /></td>
+                            <td align="center" style="text-align:center"><img src="logo.png" style="width:180px;" /></td>
                           </tr>
                           <tr>
                             <td>
@@ -846,80 +845,26 @@ body.outlook p {
 
                       </td>
                     </tr>
-                  </table>                
+                  </table>
+
                   
+                  <{if $order->getTrackingNumber()}>
                   <{assign var="shipping" value=$order->getShipping()}>
-                  <{if $shipping}>
-                  <{if $shipping->getShippingId()==2032}>
-                  <p>Hej <{$order->getOrderName()|escape}></p>
-                  <p>Mange tak for din ordre #<{$order->getWebshopOrderId()}> – din ordre er pakket og afsendt i dag med Post Danmark. Du bør derfor forvente din leverance indenfor 1-2 hverdage.<br></p>
-                  <p>Din ordrestatus er nu følgende: Din ordre er sendt.</p>
-                  <{if $order->getTrackingNumber()}>
-                  <p>Du kan følge din pakke på nedenstående link til Post Danmark: <br></p>
-                  <p><a href="<{$order->getTrackingUrl()|escape}>" target="_blank">Følg din ordre her</a>.</p>
-                  <{/if}>
-                  <p>Vi håber, at du bliver glad for købet!</p>
-                  <p><br>Mange hilsner<br></p>
-                  <p>Anni</p>
-                  <p>Olisan.dk<br></p>
-                  <p>Ønsker du information om det sidste nye?</p>
-                  <p>Vi kan anbefale dig at tilmelde dig vores nyhedsbrev og/eller facebook side og få en besked i ny og næ, om gode tilbud eller topnyheder. Det er selvfølgelig altid muligt at melde fra igen.<br><br></p>
-                  <p>http://olisan.dk/nyhedsbrev</p>
-                  <p>https://www.facebook.com/Olisan.dk</p>
+                  <table class="row callout">
+                    <tr>
+                      <td class="wrapper last">
 
-                  <{/if}>
-                  <{/if}>
-                  <{if $shipping->getShippingId()==1990}>
-                  <p>Hej <{$order->getOrderName()|escape}></p>
-                  <p>Mange tak for din ordre #<{$order->getWebshopOrderId()}> – din ordre er pakket og afsendt i dag med GLS, til afhentning i den ønskede pakkeshop. Du bør derfor forvente at din leverance ligger klar indenfor 1-2 hverdage.<br></p>
-                  <p>Venligst bemærk at pakken ligger i pakkeshoppen 8 hverdage.<br></p>
-                  <p>Din ordrestatus er nu, at pakken er sendt.</p>
-                  <{if $order->getTrackingNumber()}>
-                  <p>Du kan følge din pakke på nedenstående link: <br></p>
-                  <p><a href="<{$order->getTrackingUrl()|escape}>" target="_blank">Følg din ordre her</a>.<br></p>
-                  <{/if}>
-                  <p>Vi håber, at du bliver glad for købet!</p>
-                  <p><br>Mange hilsner<br></p>
-                  <p>Anni</p>
-                  <p>Olisan.dk<br></p>
-                  <p>Ønsker du information om det sidste nye?</p>
-                  <p>Vi kan anbefale dig at tilmelde dig vores nyhedsbrev og/eller facebook side og få en besked i ny og næ, om gode tilbud eller topnyheder. Det er selvfølgelig altid muligt at melde fra igen.<br><br></p>
-                  <p>http://olisan.dk/nyhedsbrev</p>
-                  <p>https://www.facebook.com/Olisan.dk</p>
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="panel" style="text-align:center;">
+                              <p><a href="<{$order->getTrackingUrl()|escape}>" target="_blank">Følg din ordre hos <{$shipping->getName()|escape}></a>.</p>
+                            </td>
+                          </tr>
+                        </table>
 
-                  <{/if}>
-
-                  <{if $shipping->getShippingId()==2030}>
-                  <p>Hej <{$order->getOrderName()|escape}></p>
-                  <p>Tak for din ordre – den er pakket og ligger nu klar til afhentning.<br></p>
-                  <p>Butikken er åben følgende dage:<br></p>
-                  <{if $settings.openinghours.monday}>
-                  <p>Mandag <{$settings.openinghours.monday}></p>
-                  <{/if}>
-                  <{if $settings.openinghours.tuesday}>
-                  <p>Tirsdag <{$settings.openinghours.tuesday}></p>
-                  <{/if}>
-                  <{if $settings.openinghours.wednesday}>
-                  <p>Onsdag <{$settings.openinghours.wednesday}></p>
-                  <{/if}>
-                  <{if $settings.openinghours.thursday}>
-                  <p>Torsdag <{$settings.openinghours.thursday}></p>
-                  <{/if}>
-                  <{if $settings.openinghours.friday}>
-                  <p>Fredag <{$settings.openinghours.friday}></p>
-                  <{/if}>
-                  <{if $settings.openinghours.saturday}>
-                  <p>Lørdag<{$settings.openinghours.saturday}></p>
-                  <{/if}>
-
-                  <br>
-                  <p>Mange hilsner</p>
-                  <p>Christina</p>
-                  <p>Olisan.dk</p>
-                  <p>Labing Møllevej 6</p>
-                  <p>8462 Harlev</p>
-                  <p>61277692</p>
-
+                      </td>
+                    </tr>
+                  </table>
                   <{/if}>
 
 
